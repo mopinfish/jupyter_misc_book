@@ -14,4 +14,10 @@ RUN              curl -L -o coursier https://git.io/coursier
 RUN              chmod +x coursier
 RUN              ./coursier bootstrap -i user -I user:sh.almond:scala-kernel-api_$SCALA_VERSION:$ALMOND_VERSION sh.almond:scala-kernel_$SCALA_VERSION:$ALMOND_VERSION -o almond
 RUN              ./almond --install --force
+# install octave kernel
+USER             root
+RUN              apt update
+RUN              apt upgrade -y
+RUN              apt install -y octave
+RUN              pip install octave-kernel
 #EXPOSE           80
