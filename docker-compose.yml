@@ -1,0 +1,26 @@
+# docker-composeのバージョン、最新は3
+version: '3'
+services:
+  jupyterlab:
+    # 今回はこのall-spark-notebook:latestイメージを利用する。
+    # JupyterLabが既にインストール済。
+    # pipで何か追加したい場合などはDockerfileを書く。
+    image: mopinfish-jupyter:latest
+    container_name: jupyter
+    user: root
+    # URLに書いてある設定を読んで以下のenvironmentを書く。
+    environment:
+      NB_UID: 1000
+      NB_GID: 100
+      GRANT_SUDO: "yes"
+    # コンテナの/jobyan/work以下をホストの./workにおいてデータ永続化する。
+    volumes:
+       - "./work:/home/jovyan/work"
+    privileged: true
+    # (ホストポート:コンテナポート)
+    ports:
+      - "8888:8888"
+    restart: unless-stopped
+    # パスワード設定などとりあえずめんどくさいのでtokenを空にしてすぐ使えるようにする。
+    # (起動テスト用なので実際にはパスワードなどを設定してください)
+    command: start.sh jupyter lab --NotebookApp.token=''
