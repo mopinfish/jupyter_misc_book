@@ -16,6 +16,7 @@ services:
     # コンテナの/jobyan/work以下をホストの./workにおいてデータ永続化する。
     volumes:
        - "./work:/home/jovyan/work"
+       - "./data:/home/jovyan/data"
     privileged: true
     # (ホストポート:コンテナポート)
     ports:
