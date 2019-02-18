@@ -20,4 +20,7 @@ RUN              apt update
 RUN              apt upgrade -y
 RUN              apt install -y octave
 RUN              pip install octave-kernel
+RUN              apt install -y graphviz
+RUN              apt install -y libgraphviz-dev
+RUN              pip install pygraphviz
 #EXPOSE           80
