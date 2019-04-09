@@ -23,4 +23,6 @@ RUN              pip install octave-kernel
 RUN              apt install -y graphviz
 RUN              apt install -y libgraphviz-dev
 RUN              pip install pygraphviz
+RUN              pip install pandas-profiling
+RUN              conda install -c conda-forge lightgbm
 #EXPOSE           80
