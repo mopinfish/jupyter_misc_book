@@ -28,9 +28,9 @@ RUN              pip install pandas-profiling
 RUN              conda install -c conda-forge lightgbm
 
 # adapt japanese for matplotlib
-RUN              curl -L  "https://oscdl.ipa.go.jp/IPAexfont/ipaexg00301.zip" > font.zip
-RUN              unzip font.zip
-RUN              cp ipaexg00301/ipaexg.ttf /opt/conda/lib/python3.6/site-packages/matplotlib/mpl-data/fonts/ttf/ipaexg.ttf
-RUN              echo "font.family : IPAexGothic" >>  /opt/conda/lib/python3.6/site-packages/matplotlib/mpl-data/matplotlibrc
-RUN              rm -r ./.cache
+#RUN              curl -L  "https://oscdl.ipa.go.jp/IPAexfont/ipaexg00301.zip" > font.zip
+#RUN              unzip font.zip
+#RUN              cp ipaexg00301/ipaexg.ttf /opt/conda/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/ipaexg.ttf
+#RUN              echo "font.family : IPAexGothic" >>  /opt/conda/lib/python3.6/site-packages/matplotlib/mpl-data/matplotlibrc
+#RUN              rm -r ./.cache
 #EXPOSE           80
