@@ -19,13 +19,22 @@ RUN              ./almond --install --force
 USER             root
 RUN              apt update
 RUN              apt upgrade -y
-RUN              apt install -y octave
-RUN              pip install octave-kernel
-RUN              apt install -y graphviz
-RUN              apt install -y libgraphviz-dev
-RUN              pip install pygraphviz
-RUN              pip install pandas-profiling
+RUN              apt-get update && apt-get install -y \
+                 octave \
+                 graphviz \
+                 libgraphviz-dev \
+                 wget \
+                 unzip
+RUN              pip install \
+                 octave-kernel \
+                 pygraphviz \
+                 pandas-profiling
 RUN              conda install -c conda-forge lightgbm
+
+# install kuromoji
+RUN              wget https://github.com/downloads/atilika/kuromoji/kuromoji-0.7.7.zip
+RUN              unzip kuromoji-0.7.7.zip && rm kuromoji-0.7.7.zip
+RUN              mv kuromoji-0.7.7 /usr/local/spark/jars/
 
 # adapt japanese for matplotlib
 #RUN              curl -L  "https://oscdl.ipa.go.jp/IPAexfont/ipaexg00301.zip" > font.zip

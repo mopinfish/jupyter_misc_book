@@ -13,6 +13,8 @@ services:
       NB_UID: 1000
       NB_GID: 100
       GRANT_SUDO: "yes"
+      PYSPARK_SUBMIT_ARGS: "--master local[2] pyspark-shell"
+      JAVA_HOME: "/usr/lib/jvm/java-8-openjdk-amd64"
     # コンテナの/jobyan/work以下をホストの./workにおいてデータ永続化する。
     volumes:
        - "./work:/home/jovyan/work"
