@@ -6,3 +6,5 @@ build:
 	docker build -f Dockerfile -t mopinfish-jupyter:latest --no-cache=true .
 shell:
 	docker exec -it jupyter /bin/bash
+rm-all-ps:
+	docker rm $(docker ps -aq)
