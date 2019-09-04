@@ -36,9 +36,9 @@ RUN              unzip kuromoji-0.7.7.zip && rm kuromoji-0.7.7.zip
 RUN              mv kuromoji-0.7.7 /usr/local/spark/jars/
 
 # adapt japanese for matplotlib
-#RUN              curl -L  "https://oscdl.ipa.go.jp/IPAexfont/ipaexg00301.zip" > font.zip
-#RUN              unzip font.zip
-#RUN              cp ipaexg00301/ipaexg.ttf /opt/conda/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/ipaexg.ttf
-#RUN              echo "font.family : IPAexGothic" >>  /opt/conda/lib/python3.6/site-packages/matplotlib/mpl-data/matplotlibrc
-#RUN              rm -r ./.cache
-#EXPOSE           80
+RUN              curl -L  "https://oscdl.ipa.go.jp/IPAexfont/ipaexg00301.zip" > font.zip
+RUN              unzip font.zip
+RUN              cp ipaexg00301/ipaexg.ttf /opt/conda/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/ipaexg.ttf
+RUN              echo "font.family : IPAexGothic" >>  /opt/conda/lib/python3.7/site-packages/matplotlib/mpl-data/matplotlibrc
+RUN              rm -r ./.cache
+EXPOSE           80
